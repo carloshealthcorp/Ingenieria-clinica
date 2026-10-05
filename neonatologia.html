@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Neonatología · Healthcorp</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..800&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#FFFFFF; --soft:#F2F6F8; --ink:#10242E; --muted:#556B75; --line:#DCE5E9;
+  --brand:#0E5A78; --brand-deep:#0A3347; --on-brand:#FFFFFF; --accent:#1F9D84; --warn:#B5651D;
+  --card:#FFFFFF;
+  --f-display:"Archivo","Arial Narrow",system-ui,sans-serif;
+  --f-body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0C1A21; --soft:#10232C; --ink:#E5EEF1; --muted:#9FB3BC; --line:#22404C;
+  --brand:#3FA6CC; --brand-deep:#071820; --on-brand:#FFFFFF; --accent:#3CC4A6; --warn:#E39A55; --card:#132A34; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0C1A21; --soft:#10232C; --ink:#E5EEF1; --muted:#9FB3BC; --line:#22404C;
+  --brand:#3FA6CC; --brand-deep:#071820; --on-brand:#FFFFFF; --accent:#3CC4A6; --warn:#E39A55; --card:#132A34; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.6;margin:0}
+.wrap{max-width:1200px;margin:0 auto;padding-inline:clamp(16px,4vw,40px)}
+h1,h2,h3,h4{font-family:var(--f-display);text-wrap:balance;line-height:1.12;margin:0}
+h2{font-size:clamp(1.7rem,3.4vw,2.5rem);font-weight:750;font-variation-settings:"wdth" 88}
+h3{font-size:1.15rem;font-weight:700}
+p{margin:0}
+a{color:var(--brand)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.eyebrow{font-family:var(--f-mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:500}
+.muted{color:var(--muted)}
+
+/* top bar + header */
+.topbar{background:var(--brand-deep);color:#C9DCE4;font-size:.85rem}
+.topbar .wrap{display:flex;justify-content:space-between;gap:12px;padding-block:7px;flex-wrap:wrap}
+header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:12px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+.brand img{height:40px;width:auto}
+.brand .mark{width:36px;height:36px;border-radius:8px;background:var(--brand);color:var(--on-brand);display:grid;place-items:center;font-family:var(--f-display);font-weight:800}
+.brand b{font-family:var(--f-display);font-weight:800;font-size:1.2rem;letter-spacing:.04em;font-variation-settings:"wdth" 110}
+.brand small{display:block;font-family:var(--f-mono);font-size:.62rem;letter-spacing:.12em;color:var(--muted);text-transform:uppercase}
+.menu{display:flex;gap:4px;list-style:none;margin:0;padding:0;align-items:center}
+.menu > li{position:relative}
+.menu a{display:block;padding:8px 12px;border-radius:6px;color:var(--ink);text-decoration:none;font-weight:600;font-size:.95rem}
+.menu a:hover,.menu a[aria-current="page"]{color:var(--brand);background:var(--soft)}
+.menu .dd{position:absolute;left:0;top:100%;min-width:260px;background:var(--card);border:1px solid var(--line);border-radius:8px;box-shadow:0 14px 34px rgba(10,51,71,.14);padding:8px;display:none;grid-template-columns:1fr;gap:2px}
+.menu li:hover .dd,.menu li:focus-within .dd{display:grid}
+.menu .dd a{font-weight:500;display:flex;justify-content:space-between;gap:10px}
+.menu .dd a code{font-family:var(--f-mono);font-size:.7rem;color:var(--muted)}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--brand);color:var(--on-brand);border:0;border-radius:6px;padding:12px 20px;font-weight:600;font-family:var(--f-body);font-size:1rem;text-decoration:none;cursor:pointer;white-space:nowrap}
+.btn:hover{filter:brightness(1.08)}
+.btn.light{background:#FFFFFF;color:#0A3347}
+.btn.line{background:transparent;color:inherit;border:1px solid currentColor}
+.menu-toggle{display:none}
+
+/* hero */
+.hero{position:relative;color:#FFFFFF;background:#0A3347;overflow:hidden}
+.hero .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,30,42,.94) 0%,rgba(7,30,42,.82) 45%,rgba(7,30,42,.35) 100%)}
+.hero .wrap{position:relative;z-index:1;padding-block:clamp(56px,9vw,120px)}
+.hero h1{font-size:clamp(2.2rem,5.2vw,4rem);font-weight:800;font-variation-settings:"wdth" 82;max-width:17ch}
+.hero .lead{font-size:1.15rem;color:#D3E2E8;max-width:58ch;margin-top:18px}
+.hero .ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.hero .eyebrow{color:#7FD9C4}
+.crumbs{font-size:.88rem;color:#B9CFD8;margin-bottom:18px;display:flex;gap:8px;flex-wrap:wrap}
+.crumbs a{color:#FFFFFF}
+.refbadge{position:absolute;right:12px;bottom:10px;z-index:2;font-family:var(--f-mono);font-size:.65rem;letter-spacing:.06em;background:rgba(0,0,0,.55);color:#FFFFFF;padding:3px 8px;border-radius:3px}
+
+/* stats */
+.stats{background:var(--brand);color:var(--on-brand)}
+.stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding-block:28px}
+.stats b{display:block;font-family:var(--f-display);font-size:2rem;font-variation-settings:"wdth" 82;font-variant-numeric:tabular-nums;line-height:1.1}
+.stats span{font-size:.9rem;opacity:.85}
+
+section{padding-block:clamp(56px,7vw,96px)}
+section.soft{background:var(--soft)}
+.head{display:grid;gap:12px;max-width:72ch;margin-bottom:38px}
+.head p{color:var(--muted);font-size:1.05rem}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px);align-items:center}
+.split > *{min-width:0}
+
+/* pillars */
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.pillar{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:28px;display:grid;gap:12px;align-content:start}
+.pillar .ic{width:44px;height:44px;border-radius:10px;background:var(--soft);color:var(--brand);display:grid;place-items:center}
+.pillar ul{margin:0;padding-left:18px;color:var(--muted);display:grid;gap:4px}
+
+/* area cards */
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.filters button{font-family:var(--f-body);font-weight:600;font-size:.92rem;padding:8px 16px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--brand);border-color:var(--brand);color:var(--on-brand)}
+.areas{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,270px),1fr));gap:20px}
+.acard{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden;text-decoration:none;color:var(--ink);transition:transform .2s,box-shadow .2s}
+.acard:hover{transform:translateY(-3px);box-shadow:0 16px 36px rgba(10,51,71,.14)}
+.acard .ph{position:relative;aspect-ratio:16/10;background:linear-gradient(135deg,var(--brand-deep),var(--brand));overflow:hidden}
+.acard .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.acard .ph .code{position:absolute;left:12px;top:12px;z-index:1;font-family:var(--f-mono);font-size:.72rem;letter-spacing:.08em;background:#FFFFFF;color:#0A3347;padding:3px 8px;border-radius:4px}
+.acard .ph .nm{position:absolute;left:16px;bottom:12px;font-family:var(--f-display);font-weight:800;font-size:1.5rem;color:rgba(255,255,255,.18);font-variation-settings:"wdth" 80}
+.acard .body{padding:20px;display:grid;gap:8px;flex:1;align-content:start}
+.acard .body p{color:var(--muted);font-size:.95rem}
+.acard .more{margin-top:auto;padding:0 20px 18px;font-weight:600;color:var(--brand);font-size:.95rem}
+
+/* phases */
+.phases{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:16px;counter-reset:f}
+.phases li{counter-increment:f;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:22px;display:grid;gap:8px;align-content:start}
+.phases li::before{content:counter(f,decimal-leading-zero);font-family:var(--f-display);font-weight:800;font-size:1.8rem;color:var(--brand);line-height:1}
+.phases p{color:var(--muted);font-size:.95rem}
+.phases .who{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.05em;text-transform:uppercase;color:var(--accent)}
+
+/* why */
+.why{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:26px 32px}
+.why div{display:grid;gap:6px;border-top:2px solid var(--brand);padding-top:16px}
+.why p{color:var(--muted)}
+
+/* team */
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.person{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:22px;display:flex;gap:14px}
+.person .av{flex:none;width:48px;height:48px;border-radius:50%;background:var(--brand);color:var(--on-brand);display:grid;place-items:center;font-family:var(--f-display);font-weight:700}
+.person p{color:var(--muted);font-size:.95rem}
+
+/* table */
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;min-width:680px;font-size:.95rem}
+th,td{text-align:left;padding:14px 18px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+th{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:500;background:var(--soft)}
+.tag{font-family:var(--f-mono);font-size:.66rem;padding:3px 8px;border-radius:4px;border:1px solid var(--line);white-space:nowrap;color:var(--muted)}
+.tag.ob{border-color:var(--accent);color:var(--accent)}
+
+/* faq */
+details{border-bottom:1px solid var(--line);padding-block:16px}
+details summary{cursor:pointer;font-weight:600;font-size:1.05rem;list-style:none;display:flex;justify-content:space-between;gap:12px}
+details summary::after{content:"+";color:var(--brand);font-weight:700}
+details[open] summary::after{content:"–"}
+details p{color:var(--muted);margin-top:10px;max-width:75ch}
+
+/* CTA + footer */
+.cta{background:var(--brand-deep);color:#FFFFFF}
+.cta .wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center}
+.cta p{color:#C9DCE4;margin-top:12px;max-width:54ch}
+.cbox{display:grid;gap:12px}
+.cbox div{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-bottom:1px solid rgba(255,255,255,.18);padding-bottom:10px}
+.cbox span{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:#9FC0CC}
+.cbox b{user-select:all;font-weight:600}
+footer.site{background:#071820;color:#9FB3BC;font-size:.9rem}
+footer.site .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:28px;padding-block:40px}
+footer.site h4{color:#FFFFFF;font-size:.95rem;margin-bottom:10px}
+footer.site ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+footer.site a{color:#C9DCE4;text-decoration:none}
+footer.site .legal{grid-column:1/-1;border-top:1px solid #1C3540;padding-top:16px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+/* area page */
+.facts{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.facts span{font-size:.85rem;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);padding:6px 12px;border-radius:999px}
+.facts span b{color:#7FD9C4;font-weight:600}
+.tabbar{position:sticky;top:calc(env(safe-area-inset-top,0px) + 65px);z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.tabbar .wrap{display:flex;gap:4px;overflow-x:auto}
+.tabbar button{font-family:var(--f-body);font-size:.98rem;font-weight:600;background:none;border:0;border-bottom:3px solid transparent;color:var(--muted);padding:16px 14px;cursor:pointer;white-space:nowrap}
+.tabbar button[aria-selected="true"]{color:var(--brand);border-bottom-color:var(--brand)}
+.panel{padding-block:clamp(36px,5vw,64px)}
+.zones{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:16px}
+.zone{background:var(--soft);border-radius:10px;padding:20px;display:grid;gap:6px;align-content:start}
+.zone p{color:var(--muted);font-size:.95rem}
+.rel{display:flex;gap:8px;flex-wrap:wrap}
+.rel a{text-decoration:none;font-weight:600;font-size:.92rem;border:1px solid var(--line);border-radius:999px;padding:7px 14px;color:var(--ink);background:var(--card)}
+.rel a:hover{border-color:var(--brand);color:var(--brand)}
+.eqgrid{display:grid;grid-template-columns:1.2fr 1fr;gap:32px;align-items:start}
+.eqgrid > *{min-width:0}
+.eqlist{list-style:none;margin:0;padding:0;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+.eqlist li{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:13px 18px;border-bottom:1px solid var(--line)}
+.eqlist li:last-child{border-bottom:0}
+.eqlist .tag.hc{border-color:var(--brand);color:var(--brand)}
+.eqphotos{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.media{position:relative;margin:0;border-radius:10px;overflow:hidden;background:var(--soft);aspect-ratio:4/3;max-width:100%;border:1px solid var(--line)}
+.media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#FFFFFF}
+.media.contain img{object-fit:contain;padding:8px}
+.media .empty{position:absolute;inset:0;display:grid;place-content:center;justify-items:center;gap:6px;text-align:center;padding:16px;color:var(--muted)}
+.media .empty svg{color:var(--brand);opacity:.6}
+.media .empty b{color:var(--ink);font-family:var(--f-display);font-size:1rem}
+.media figcaption{position:absolute;left:10px;top:10px;z-index:2;font-family:var(--f-mono);font-size:.66rem;letter-spacing:.06em;background:var(--brand);color:var(--on-brand);padding:3px 8px;border-radius:3px}
+.prelist{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:16px}
+.pre{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:22px;display:grid;gap:10px;align-content:start}
+.pre h3{display:flex;align-items:center;gap:10px}
+.pre h3::before{content:"";width:10px;height:10px;border-radius:2px;background:var(--accent)}
+.pre ul{margin:0;padding-left:18px;display:grid;gap:6px;color:var(--muted)}
+.gallery{display:grid;grid-template-columns:2fr 1fr 1fr;gap:14px}
+.gallery .media:first-child{grid-row:span 2;aspect-ratio:auto;min-height:340px}
+.plans{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+.plans .media{aspect-ratio:16/10}
+.note{font-size:.88rem;color:var(--muted);margin-top:14px}
+.pager{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line);padding-block:28px}
+.pager a{text-decoration:none;display:grid;gap:2px;color:var(--ink)}
+.pager a span{font-size:.82rem;color:var(--muted)}
+.pager a b{color:var(--brand)}
+
+@media (max-width:960px){
+  .menu{display:none}
+  .menu-toggle{display:inline-flex}
+  .menu.open{display:grid;position:absolute;left:0;right:0;top:100%;background:var(--bg);border-bottom:1px solid var(--line);padding:12px 16px;gap:2px}
+  .menu.open .dd{display:grid;position:static;box-shadow:none;border:0;padding:0 0 0 12px}
+  .nav .btn.cta-top{display:none}
+  .pillars,.team,.split,.eqgrid,.cta .wrap{grid-template-columns:1fr}
+  .stats .wrap{grid-template-columns:repeat(2,1fr)}
+  footer.site .wrap{grid-template-columns:1fr}
+  .gallery{grid-template-columns:1fr 1fr}
+  .gallery .media:first-child{grid-column:span 2;grid-row:auto;min-height:0;aspect-ratio:16/10}
+  .plans{grid-template-columns:1fr}
+  .tabbar{top:calc(env(safe-area-inset-top,0px) + 61px)}
+}
+@media (prefers-reduced-motion:reduce){.acard{transition:none}.acard:hover{transform:none}}
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="wrap"><span>Quito · Ecuador · Cobertura en las 23 provincias</span><span>+593 99 923 0608 · ventas@healthcorp.ec</span></div></div>
+<header class="site"><div class="wrap nav">
+  <a class="brand" href="index.html"><img src="https://www.healthcorp.ec/wp-content/uploads/2021/04/cropped-healthcorp-4-1.png" alt="Healthcorp" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'mark',textContent:'H'}))"><span><b>HEALTHCORP</b><small>Ingeniería clínica</small></span></a>
+  <ul class="menu" id="menu">
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="index.html#areas" aria-current="page">Áreas clínicas</a><div class="dd"><a href="quirofano.html"><span>Quirófano</span><code>QX</code></a><a href="uci.html"><span>UCI</span><code>UCI</code></a><a href="emergencia.html"><span>Emergencia</span><code>EMG</code></a><a href="recuperacion.html"><span>Recuperación</span><code>URPA</code></a><a href="central-enfermeria.html"><span>Central de enfermería</span><code>CE</code></a><a href="imagenologia.html"><span>Imagenología</span><code>IMG</code></a><a href="hospitalizacion.html"><span>Hospitalización</span><code>HOS</code></a><a href="consulta-externa.html"><span>Consulta externa</span><code>CEX</code></a><a href="esterilizacion.html"><span>Central de esterilización</span><code>CEYE</code></a><a href="neonatologia.html"><span>Neonatología</span><code>NEO</code></a></div></li>
+    <li><a href="metodologia.html">Cómo lo hacemos</a></li>
+    <li><a href="normativa.html">Normativa</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+  <a class="btn cta-top" href="#contacto">Solicitar asesoría</a>
+  <button class="btn line menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="menu">Menú</button>
+</div></header>
+<main>
+<section class="hero" style="padding:0">
+  <img class="bg" src="https://www.healthcorp.ec/wp-content/uploads/2025/04/incubadoras-de-transporte-1-1024x1024.jpg" alt="Neonatología" loading="lazy" onerror="this.remove()"><span class="refbadge">IMAGEN REFERENCIAL · CATÁLOGO HEALTHCORP</span>
+  <div class="wrap">
+    <nav class="crumbs"><a href="index.html">Inicio</a><span>/</span><a href="index.html#areas">Áreas clínicas</a><span>/</span><span>Neonatología</span></nav>
+    <p class="eyebrow">NEO · Áreas críticas</p>
+    <h1 style="margin-top:12px">Diseño y equipamiento de neonatología</h1>
+    <p class="lead">Neonatología combina cuidado crítico con un ambiente controlado: temperatura, luz y ruido. Cada puesto tiene gases, tomas suficientes y espacio para la familia.</p>
+    <div class="facts"><span><b>Código</b> NEO</span><span><b>Grupo</b> Áreas críticas</span><span><b>Riesgo NFPA 99</b> Categoría 1</span><span><b>Equipos</b> 7</span></div>
+  </div>
+</section>
+<div class="tabbar"><div class="wrap" role="tablist" id="tabs">
+  <button role="tab" aria-selected="true" aria-controls="p-diseno" id="t-diseno">Diseño del área</button>
+  <button role="tab" aria-selected="false" aria-controls="p-equipos" id="t-equipos">Equipamiento</button>
+  <button role="tab" aria-selected="false" aria-controls="p-pre" id="t-pre">Preinstalaciones</button>
+  <button role="tab" aria-selected="false" aria-controls="p-render" id="t-render">Renders y planos</button>
+</div></div>
+<div class="wrap">
+  <section class="panel" role="tabpanel" id="p-diseno" aria-labelledby="t-diseno">
+    <div class="head"><p class="eyebrow">Zonificación</p><h2>Cómo se organiza el área</h2></div>
+    <div class="zones"><div class="zone"><h3>Cuidados intensivos neonatales</h3><p>Incubadoras y ventilación.</p></div><div class="zone"><h3>Cuidados intermedios</h3><p>Termocunas y fototerapia.</p></div><div class="zone"><h3>Lactario y familia</h3><p>Acceso controlado con lavado de manos al ingreso.</p></div></div>
+    <div style="margin-top:36px;display:grid;gap:14px"><h3>Relación funcional con otras áreas</h3><div class="rel"><a href="quirofano.html">Quirófano</a><a href="uci.html">UCI</a><a href="hospitalizacion.html">Hospitalización</a></div></div>
+  </section>
+  <section class="panel" role="tabpanel" id="p-equipos" aria-labelledby="t-equipos" hidden>
+    <div class="head"><p class="eyebrow">Equipamiento</p><h2>Equipos que suministramos para neonatología</h2>
+    <p>Los marcados como catálogo Healthcorp forman parte de nuestro portafolio. Los equipos bajo proyecto se especifican y suministran según el alcance de cada obra.</p></div>
+    <div class="eqgrid"><ul class="eqlist"><li><span>Incubadoras</span><span class="tag hc">CATÁLOGO HC</span></li><li><span>Incubadora de transporte</span><span class="tag hc">CATÁLOGO HC</span></li><li><span>Termocunas</span><span class="tag hc">CATÁLOGO HC</span></li><li><span>Lámpara de fototerapia</span><span class="tag hc">CATÁLOGO HC</span></li><li><span>Bilirrubinómetro</span><span class="tag hc">CATÁLOGO HC</span></li><li><span>Ventilador neonatal</span><span class="tag hc">CATÁLOGO HC</span></li><li><span>Monitor multiparámetros</span><span class="tag hc">CATÁLOGO HC</span></li></ul><div class="eqphotos"><figure class="media contain"><figcaption>CATÁLOGO HC</figcaption><div class="empty"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 16l5-5 4 4 3-3 6 6"/><circle cx="15.5" cy="8.5" r="1.5"/></svg><b>Incubadora de transporte</b><span>Foto de catálogo</span></div><img class="" src="https://www.healthcorp.ec/wp-content/uploads/2025/04/incubadoras-de-transporte-1-1024x1024.jpg" alt="Incubadora de transporte" loading="lazy" onerror="this.remove()"></figure><figure class="media"><figcaption>CATÁLOGO HC</figcaption><div class="empty"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 16l5-5 4 4 3-3 6 6"/><circle cx="15.5" cy="8.5" r="1.5"/></svg><b>Foto de equipo</b><span>Pendiente</span></div></figure></div></div>
+  </section>
+  <section class="panel" role="tabpanel" id="p-pre" aria-labelledby="t-pre" hidden>
+    <div class="head"><p class="eyebrow">Preinstalaciones</p><h2>Lo que la obra debe dejar listo antes de instalar</h2>
+    <p>Requisitos de referencia. Se ajustan con la ficha técnica de cada equipo seleccionado y la normativa del MSP.</p></div>
+    <div class="prelist"><div class="pre"><h3>Gases medicinales</h3><ul><li>O₂, aire y vacío por puesto</li></ul></div><div class="pre"><h3>Eléctrica</h3><ul><li>Tomas suficientes por puesto en red de emergencia</li></ul></div><div class="pre"><h3>Climatización</h3><ul><li>Control de temperatura y humedad ambiente</li></ul></div><div class="pre"><h3>Civil y estructural</h3><ul><li>Filtro de lavado de manos al ingreso</li><li>Control acústico y de iluminación</li></ul></div></div>
+  </section>
+  <section class="panel" role="tabpanel" id="p-render" aria-labelledby="t-render" hidden>
+    <div class="head"><p class="eyebrow">Renders y planos</p><h2>Visualización del área con equipos Healthcorp</h2>
+    <p>Los renders se elaboran con los equipos del catálogo Healthcorp en su posición real. Los planos son referenciales.</p></div>
+    <div class="gallery"><figure class="media"><figcaption>RENDER · NEO · VISTA 1</figcaption><div class="empty"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 16l5-5 4 4 3-3 6 6"/><circle cx="15.5" cy="8.5" r="1.5"/></svg><b>Render general · Neonatología</b><span>Pendiente · arquitecto</span></div></figure><figure class="media"><figcaption>RENDER · NEO · VISTA 2</figcaption><div class="empty"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 16l5-5 4 4 3-3 6 6"/><circle cx="15.5" cy="8.5" r="1.5"/></svg><b>Detalle de cabecera o panel</b><span>Pendiente · arquitecto</span></div></figure><figure class="media"><figcaption>RENDER · NEO · VISTA 3</figcaption><div class="empty"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 16l5-5 4 4 3-3 6 6"/><circle cx="15.5" cy="8.5" r="1.5"/></svg><b>Vista desde el acceso</b><span>Pendiente · arquitecto</span></div></figure><figure class="media"><figcaption>RENDER · NEO · VISTA 4</figcaption><div class="empty"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 16l5-5 4 4 3-3 6 6"/><circle cx="15.5" cy="8.5" r="1.5"/></svg><b>Zona de apoyo</b><span>Pendiente · arquitecto</span></div></figure><figure class="media"><figcaption>RENDER · NEO · VISTA 5</figcaption><div class="empty"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 16l5-5 4 4 3-3 6 6"/><circle cx="15.5" cy="8.5" r="1.5"/></svg><b>Equipos en posición</b><span>Pendiente · arquitecto</span></div></figure></div>
+    <div class="plans"><figure class="media"><figcaption>PLANO · NEO · DISTRIBUCIÓN</figcaption><div class="empty"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 10h8V3M11 21v-6h10M15 10h6"/></svg><b>Plano de distribución</b><span>Pendiente · arquitecto</span></div></figure><figure class="media"><figcaption>PLANO · NEO · PLOT PLAN</figcaption><div class="empty"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 10h8V3M11 21v-6h10M15 10h6"/></svg><b>Plot plan de equipos</b><span>Pendiente · ingeniería clínica</span></div></figure></div>
+    <p class="note">Planos ilustrativos. La distribución final se define con el programa médico-funcional de cada proyecto.</p>
+  </section>
+  <nav class="pager"><a href="esterilizacion.html"><span>← Área anterior</span><b>Central de esterilización</b></a><a href="quirofano.html" style="text-align:right"><span>Área siguiente →</span><b>Quirófano</b></a></nav>
+</div>
+</main>
+
+<section class="cta" id="contacto"><div class="wrap">
+  <div><p class="eyebrow" style="color:#7FD9C4">Contacto</p>
+  <h2 style="margin-top:10px">¿Está planificando un quirófano, una UCI o una clínica completa?</h2>
+  <p>Cuéntenos el área y el alcance. Le proponemos el programa de equipamiento y una primera distribución en plano.</p></div>
+  <div class="cbox">
+    <div><span>Celular</span><b>+593 99 923 0608</b></div>
+    <div><span>Oficina</span><b>(593-2) 330 1815</b></div>
+    <div><span>Correo</span><b>ventas@healthcorp.ec</b></div>
+    <div><span>Dirección</span><b>Tulcán N54-164 y Jorge Piedra, Quito</b></div>
+  </div>
+</div></section>
+<footer class="site"><div class="wrap">
+  <div><h4>Healthcorp S.A.</h4><p>Importador y proveedor nacional de equipos médicos desde 2005. Diseño, equipamiento e implementación de áreas clínicas y hospitalarias.</p></div>
+  <div><h4>Áreas</h4><ul><li><a href="quirofano.html">Quirófano</a></li><li><a href="uci.html">UCI</a></li><li><a href="emergencia.html">Emergencia</a></li><li><a href="recuperacion.html">Recuperación</a></li><li><a href="central-enfermeria.html">Central de enfermería</a></li></ul></div>
+  <div><h4>&nbsp;</h4><ul><li><a href="imagenologia.html">Imagenología</a></li><li><a href="hospitalizacion.html">Hospitalización</a></li><li><a href="consulta-externa.html">Consulta externa</a></li><li><a href="esterilizacion.html">Central de esterilización</a></li><li><a href="neonatologia.html">Neonatología</a></li><li><a href="metodologia.html">Cómo lo hacemos</a></li><li><a href="normativa.html">Normativa</a></li></ul></div>
+  <div class="legal"><span>© 2026 Healthcorp S.A. · Viamed</span><span>www.healthcorp.ec</span></div>
+</div></footer>
+<script>
+(function(){
+  var t=document.getElementById('menu-toggle'),m=document.getElementById('menu');
+  if(t&&m)t.addEventListener('click',function(){var o=m.classList.toggle('open');t.setAttribute('aria-expanded',o)});
+})();
+
+(function(){
+  var tabs=document.querySelectorAll('#tabs [role=tab]');
+  function show(id){tabs.forEach(function(t){var on=t.getAttribute('aria-controls')===id;t.setAttribute('aria-selected',on);document.getElementById(t.getAttribute('aria-controls')).hidden=!on;});}
+  tabs.forEach(function(t){t.addEventListener('click',function(){show(t.getAttribute('aria-controls'))});});
+  var h=(location.hash||'').slice(1);if(h&&document.getElementById(h))show(h);
+})();
+</script>
+</body>
+</html>
