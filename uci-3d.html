@@ -3,9 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Healthcorp Áreas Clínicas</title>
+<title>UCI 3D · Healthcorp</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..800&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@4.3.1/dist/model-viewer.min.js"></script>
 <style>
 :root{
   --bg:#FFFFFF; --soft:#F2F6F8; --ink:#10242E; --muted:#556B75; --line:#DCE5E9;
@@ -238,8 +239,8 @@ model-viewer{width:100%;height:min(72vh,640px);background:linear-gradient(180deg
 <header class="site"><div class="wrap nav">
   <a class="brand" href="index.html"><img src="https://www.healthcorp.ec/wp-content/uploads/2021/04/cropped-healthcorp-4-1.png" alt="Healthcorp" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'mark',textContent:'H'}))"><span><b>HEALTHCORP</b><small>Ingeniería clínica</small></span></a>
   <ul class="menu" id="menu">
-    <li><a href="index.html" aria-current="page">Inicio</a></li>
-    <li><a href="index.html#areas">Áreas clínicas</a><div class="dd"><a href="quirofano.html"><span>Quirófano</span><code>QX</code></a><a href="uci.html"><span>UCI</span><code>UCI</code></a><a href="emergencia.html"><span>Emergencia</span><code>EMG</code></a><a href="recuperacion.html"><span>Recuperación</span><code>URPA</code></a><a href="central-enfermeria.html"><span>Central de enfermería</span><code>CE</code></a><a href="imagenologia.html"><span>Imagenología</span><code>IMG</code></a><a href="hospitalizacion.html"><span>Hospitalización</span><code>HOS</code></a><a href="consulta-externa.html"><span>Consulta externa</span><code>CEX</code></a><a href="esterilizacion.html"><span>Central de esterilización</span><code>CEYE</code></a><a href="neonatologia.html"><span>Neonatología</span><code>NEO</code></a></div></li>
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="index.html#areas" aria-current="page">Áreas clínicas</a><div class="dd"><a href="quirofano.html"><span>Quirófano</span><code>QX</code></a><a href="uci.html"><span>UCI</span><code>UCI</code></a><a href="emergencia.html"><span>Emergencia</span><code>EMG</code></a><a href="recuperacion.html"><span>Recuperación</span><code>URPA</code></a><a href="central-enfermeria.html"><span>Central de enfermería</span><code>CE</code></a><a href="imagenologia.html"><span>Imagenología</span><code>IMG</code></a><a href="hospitalizacion.html"><span>Hospitalización</span><code>HOS</code></a><a href="consulta-externa.html"><span>Consulta externa</span><code>CEX</code></a><a href="esterilizacion.html"><span>Central de esterilización</span><code>CEYE</code></a><a href="neonatologia.html"><span>Neonatología</span><code>NEO</code></a></div></li>
     <li><a href="metodologia.html">Cómo lo hacemos</a></li>
     <li><a href="normativa.html">Normativa</a></li>
     <li><a href="#contacto">Contacto</a></li>
@@ -248,103 +249,25 @@ model-viewer{width:100%;height:min(72vh,640px);background:linear-gradient(180deg
   <button class="btn line menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="menu">Menú</button>
 </div></header>
 <main>
-<section class="hero" style="padding:0">
-  <img class="bg" src="https://www.inghofm.com/wp-content/uploads/2017/10/IMG_6319-1024x768.jpg" alt="Quirófano de referencia" loading="lazy" onerror="this.remove()">
-  <span class="refbadge">IMAGEN REFERENCIAL · SE REEMPLAZA POR RENDER HC</span>
-  <div class="wrap">
-    <p class="eyebrow">Ingeniería clínica · Diseño y equipamiento hospitalario</p>
-    <h1 style="margin-top:14px">Diseñamos, equipamos e implementamos áreas clínicas completas</h1>
-    <p class="lead">Desde el programa médico hasta el primer paciente. Healthcorp integra arquitectura hospitalaria, ingeniería clínica y equipamiento médico en un solo proyecto, con un solo responsable.</p>
-    <div class="ctas"><a class="btn light" href="#areas">Explorar áreas clínicas</a><a class="btn line" href="metodologia.html">Cómo lo hacemos</a></div>
+<section class="hero" style="padding:0"><div class="wrap" style="padding-block:clamp(36px,5vw,64px)">
+  <nav class="crumbs"><a href="index.html">Inicio</a><span>/</span><a href="uci.html">UCI</a><span>/</span><span>Modelo 3D</span></nav>
+  <p class="eyebrow">UCI · Cubículo tipo · 4,20 × 4,60 × 2,80 m</p>
+  <h1 style="margin-top:12px">Recorra el cubículo UCI en 3D</h1>
+  <p class="lead">Gire con el mouse o el dedo, acerque con la rueda o pellizcando. Toque los números para identificar cada equipo Healthcorp. En celulares compatibles puede verlo en realidad aumentada.</p>
+</div></section>
+<section style="padding-top:28px"><div class="wrap">
+  <div class="viewer3d">
+    <model-viewer id="mv" src="modelos/UCI_maqueta_web.glb" alt="Modelo 3D del cubículo UCI Healthcorp" camera-controls touch-action="pan-y"
+      camera-orbit="-35deg 55deg 9m" camera-target="2.1m 1m -2.3m" field-of-view="35deg" min-camera-orbit="auto 10deg 2m" max-camera-orbit="auto 88deg 14m"
+      shadow-intensity="0.8" exposure="1.05" environment-image="neutral" ar ar-modes="webxr scene-viewer quick-look" interaction-prompt="auto">
+      <button class="hs" slot="hotspot-0" data-position="2.1m 1.05m -3.0m" data-normal="0m 1m 0m"><span>1</span><em>Cama UCI SAIKANG Y8t8y-CPR</em></button><button class="hs" slot="hotspot-1" data-position="0.99m 1.55m -3.75m" data-normal="0m 1m 0m"><span>2</span><em>Ventilador COMEN V3</em></button><button class="hs" slot="hotspot-2" data-position="3.19m 1.85m -3.75m" data-normal="0m 1m 0m"><span>3</span><em>Monitor COMEN K12 pro</em></button><button class="hs" slot="hotspot-3" data-position="3.47m 1.2m -3.72m" data-normal="0m 1m 0m"><span>4</span><em>Bombas COMEN ME600 / M800</em></button><button class="hs" slot="hotspot-4" data-position="2.1m 2.45m -4.05m" data-normal="0m 1m 0m"><span>5</span><em>Colgante de techo COMEN serie D</em></button><button class="hs" slot="hotspot-5" data-position="0.3m 1.0m -0.65m" data-normal="0m 1m 0m"><span>6</span><em>Lavamanos clínico</em></button><button class="hs" slot="hotspot-6" data-position="3.55m 0.75m -1.75m" data-normal="0m 1m 0m"><span>7</span><em>Sillón de acompañante</em></button>
+      <div class="mv-load" slot="poster">Cargando modelo 3D…</div>
+    </model-viewer>
+    <aside class="legend3d"><h3>Equipamiento</h3><ol><li><b>1</b>Cama UCI SAIKANG Y8t8y-CPR</li><li><b>2</b>Ventilador COMEN V3</li><li><b>3</b>Monitor COMEN K12 pro</li><li><b>4</b>Bombas COMEN ME600 / M800</li><li><b>5</b>Colgante de techo COMEN serie D</li><li><b>6</b>Lavamanos clínico</li><li><b>7</b>Sillón de acompañante</li></ol>
+      <div class="views"><button data-o="-35deg 55deg 9m" data-t="2.1m 1m -2.3m">Vista general</button><button data-o="0deg 75deg 6m" data-t="2.1m 1.1m -2.6m">Frente</button><button data-o="0deg 8deg 9m" data-t="2.1m 0m -2.3m">Planta</button><button data-o="-20deg 80deg 3.2m" data-t="2.1m 1.3m -3.6m">Cabecera</button></div>
+      <p class="note">Modelo referencial. Volúmenes según medidas de catálogo; el render final lo ajusta el arquitecto especialista.</p>
+    </aside>
   </div>
-</section>
-<div class="stats"><div class="wrap">
-  <div><b>2005</b><span>en el mercado de la salud</span></div>
-  <div><b>+2000</b><span>clientes públicos y privados</span></div>
-  <div><b>23</b><span>provincias con cobertura</span></div>
-  <div><b>BPA · BPD · BPT</b><span>certificación ARCSA</span></div>
-</div></div>
-
-<section id="servicios"><div class="wrap">
-  <div class="head"><p class="eyebrow">Qué hacemos</p><h2>Un solo equipo para el espacio, la tecnología y la puesta en marcha</h2>
-  <p>El equipamiento médico condiciona la infraestructura: carga eléctrica, gases medicinales, climatización, blindajes y refuerzos estructurales. Por eso diseñamos y equipamos al mismo tiempo, no uno después del otro.</p></div>
-  <div class="pillars">
-    <article class="pillar"><span class="ic"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 10h8V3M11 21v-6h10M15 10h6"/></svg></span><h3>Diseño de áreas clínicas</h3><ul><li>Programa médico-arquitectónico</li><li>Flujos de pacientes, personal y material</li><li>Planos por área y renders 3D</li></ul></article>
-    <article class="pillar"><span class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M6 12h3l2-3 2 6 2-3h3"/></svg></span><h3>Equipamiento médico</h3><ul><li>Plan de equipamiento y plot plan</li><li>Especificaciones y preinstalaciones</li><li>Importación directa con registro ARCSA</li></ul></article>
-    <article class="pillar"><span class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg></span><h3>Implementación</h3><ul><li>Instalación y pruebas de aceptación</li><li>Seguridad eléctrica IEC 60601-1</li><li>Capacitación y mantenimiento</li></ul></article>
-  </div>
-</div></section>
-
-<section id="render" style="padding-top:0"><div class="wrap">
-  <div class="head"><p class="eyebrow">Proyecto en desarrollo</p><h2>Cubículo UCI diseñado y equipado por Healthcorp</h2>
-  <p>Modelo 3D a escala real (4,20 × 4,60 m) con equipos del catálogo Healthcorp en su posición: cama SAIKANG, colgante de techo, monitor K12 pro, ventilador V3 y bombas de infusión COMEN.</p></div>
-  <div class="render-main"><figure class="media"><figcaption>RENDER 3D · UCI · CUBÍCULO TIPO</figcaption><div class="empty"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 16l5-5 4 4 3-3 6 6"/><circle cx="15.5" cy="8.5" r="1.5"/></svg><b>Render principal del proyecto</b><span></span></div><img class="" src="img/UCI_render_A.png" alt="Render 3D de cubículo UCI Healthcorp" loading="lazy" onerror="this.remove()"></figure></div>
-  <div class="ctas" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:20px"><a class="btn" href="uci-3d.html">Recorrer el cubículo en 3D</a><a class="btn line" style="color:var(--brand)" href="uci.html#p-render">Ver renders y plano de UCI</a></div>
-</div></section>
-
-<section class="soft" id="areas"><div class="wrap">
-  <div class="head"><p class="eyebrow">Áreas clínicas</p><h2>Elija un área para ver su diseño, equipamiento y preinstalaciones</h2>
-  <p>Cada área tiene su propia página con zonificación, equipos del catálogo Healthcorp, requisitos de instalaciones, renders y planos referenciales.</p></div>
-  <div class="filters" id="filters"><button aria-pressed="true" data-g="*">Todas</button><button aria-pressed="false" data-g="Áreas críticas">Áreas críticas</button><button aria-pressed="false" data-g="Apoyo clínico">Apoyo clínico</button><button aria-pressed="false" data-g="Diagnóstico">Diagnóstico</button><button aria-pressed="false" data-g="Internación">Internación</button><button aria-pressed="false" data-g="Ambulatorio">Ambulatorio</button></div>
-  <div class="areas" id="area-grid"><a class="acard" href="quirofano.html" data-g="Áreas críticas">
-  <div class="ph"><span class="code">QX · Áreas críticas</span><span class="nm">Quirófano</span><img class="" src="https://www.inghofm.com/wp-content/uploads/2017/10/IMG_6319-1024x768.jpg" alt="Quirófano" loading="lazy" onerror="this.remove()"></div>
-  <div class="body"><h3>Quirófano</h3><p>Bloque quirúrgico con flujo estéril, equipos en techo y control ambiental estricto.</p></div>
-  <span class="more">Ver área →</span></a><a class="acard" href="uci.html" data-g="Áreas críticas">
-  <div class="ph"><span class="code">UCI · Áreas críticas</span><span class="nm">UCI</span><img class="" src="img/UCI_render_A.png" alt="UCI" loading="lazy" onerror="this.remove()"></div>
-  <div class="body"><h3>UCI</h3><p>Cubículos de cuidado crítico con soporte vital y monitoreo central en cada cama.</p></div>
-  <span class="more">Ver área →</span></a><a class="acard" href="emergencia.html" data-g="Áreas críticas">
-  <div class="ph"><span class="code">EMG · Áreas críticas</span><span class="nm">Emergencia</span><img class="" src="https://www.healthcorp.ec/wp-content/uploads/2025/04/ventilador-de-transporte-V1-1-1024x1024.jpg" alt="Emergencia" loading="lazy" onerror="this.remove()"></div>
-  <div class="body"><h3>Emergencia</h3><p>Triage, reanimación y observación conectados con circulaciones cortas.</p></div>
-  <span class="more">Ver área →</span></a><a class="acard" href="recuperacion.html" data-g="Áreas críticas">
-  <div class="ph"><span class="code">URPA · Áreas críticas</span><span class="nm">Recuperación</span><img class="" src="https://www.healthcorp.ec/wp-content/uploads/2025/04/monitor-multiparametros-12-1024x1024.jpg" alt="Recuperación" loading="lazy" onerror="this.remove()"></div>
-  <div class="body"><h3>Recuperación</h3><p>Recuperación post-anestésica junto al bloque quirúrgico, con monitoreo por cubículo.</p></div>
-  <span class="more">Ver área →</span></a><a class="acard" href="central-enfermeria.html" data-g="Apoyo clínico">
-  <div class="ph"><span class="code">CE · Apoyo clínico</span><span class="nm">Central de enfermería</span><img class="" src="https://www.healthcorp.ec/wp-content/uploads/2025/02/Monitor-de-signos-vitales-1-3-1024x1024.png" alt="Central de enfermería" loading="lazy" onerror="this.remove()"></div>
-  <div class="body"><h3>Central de enfermería</h3><p>Punto de control del servicio: monitoreo central, medicación y coordinación.</p></div>
-  <span class="more">Ver área →</span></a><a class="acard" href="imagenologia.html" data-g="Diagnóstico">
-  <div class="ph"><span class="code">IMG · Diagnóstico</span><span class="nm">Imagenología</span><img class="" src="https://www.inghofm.com/wp-content/uploads/2018/09/3D.jpg" alt="Imagenología" loading="lazy" onerror="this.remove()"></div>
-  <div class="body"><h3>Imagenología</h3><p>Salas de diagnóstico por imagen con blindaje, energía dedicada y refuerzo estructural.</p></div>
-  <span class="more">Ver área →</span></a><a class="acard" href="hospitalizacion.html" data-g="Internación">
-  <div class="ph"><span class="code">HOS · Internación</span><span class="nm">Hospitalización</span><img class="" src="https://www.healthcorp.ec/wp-content/uploads/2025/04/cama-hospitalaria-2-1024x1024.jpg" alt="Hospitalización" loading="lazy" onerror="this.remove()"></div>
-  <div class="body"><h3>Hospitalización</h3><p>Habitaciones pensadas para el confort del paciente y el recorrido de enfermería.</p></div>
-  <span class="more">Ver área →</span></a><a class="acard" href="consulta-externa.html" data-g="Ambulatorio">
-  <div class="ph"><span class="code">CEX · Ambulatorio</span><span class="nm">Consulta externa</span><img class="" src="https://www.healthcorp.ec/wp-content/uploads/2025/02/Balanza-digital-con-tallimetro-1-5-1024x1024.png" alt="Consulta externa" loading="lazy" onerror="this.remove()"></div>
-  <div class="body"><h3>Consulta externa</h3><p>Consultorios por especialidad con equipos de diagnóstico y flujos ambulatorios.</p></div>
-  <span class="more">Ver área →</span></a><a class="acard" href="esterilizacion.html" data-g="Apoyo clínico">
-  <div class="ph"><span class="code">CEYE · Apoyo clínico</span><span class="nm">Central de esterilización</span></div>
-  <div class="body"><h3>Central de esterilización</h3><p>Flujo unidireccional sucio, limpio y estéril para el instrumental del hospital.</p></div>
-  <span class="more">Ver área →</span></a><a class="acard" href="neonatologia.html" data-g="Áreas críticas">
-  <div class="ph"><span class="code">NEO · Áreas críticas</span><span class="nm">Neonatología</span><img class="" src="https://www.healthcorp.ec/wp-content/uploads/2025/04/incubadoras-de-transporte-1-1024x1024.jpg" alt="Neonatología" loading="lazy" onerror="this.remove()"></div>
-  <div class="body"><h3>Neonatología</h3><p>Puestos neonatales con control térmico, fototerapia y soporte ventilatorio.</p></div>
-  <span class="more">Ver área →</span></a></div>
-</div></section>
-
-<section id="metodo"><div class="wrap">
-  <div class="split" style="align-items:start">
-    <div class="head" style="margin:0"><p class="eyebrow">Cómo lo hacemos</p><h2>Siete fases, del diagnóstico al seguimiento</h2>
-    <p>La ingeniería clínica participa desde el plan de equipamiento, en paralelo al diseño arquitectónico. Así las preinstalaciones quedan resueltas antes de construir y se evitan reformas.</p>
-    <p><a class="btn" href="metodologia.html" style="margin-top:8px">Ver la metodología completa</a></p></div>
-    <ol class="phases" style="grid-template-columns:1fr 1fr"><li><h3>Diagnóstico y programa médico-funcional</h3><p>Cartera de servicios, dimensionamiento de camas y ambientes, perfil de la población que se atenderá.</p><span class="who">Cliente · Arquitectura · Ingeniería clínica</span></li><li><h3>Plan de equipamiento</h3><p>Listado de equipos por área, especificaciones técnicas, plot plan y preinstalaciones.</p><span class="who">Ingeniería clínica</span></li><li><h3>Diseño arquitectónico integrado</h3><p>Planos ejecutivos que incorporan el plan de equipamiento, validados antes de construir.</p><span class="who">Arquitectura · Ingeniería clínica</span></li><li><h3>Adquisición</h3><p>Selección de fabricantes y verificación de ISO 13485, CE, FDA y registro sanitario ARCSA.</p><span class="who">Healthcorp</span></li></ol>
-  </div>
-</div></section>
-
-<section class="soft"><div class="wrap">
-  <div class="head"><p class="eyebrow">Por qué Healthcorp</p><h2>Proveedor directo del equipamiento, responsable de todo el proyecto</h2></div>
-  <div class="why">
-    <div><h3>Un solo responsable</h3><p>Diseño, suministro, instalación y soporte con el mismo equipo. Sin intermediarios entre quien diseña y quien equipa.</p></div>
-    <div><h3>Equipos que conocemos</h3><p>El plan de equipamiento se hace con equipos reales de nuestro catálogo, con sus fichas técnicas y requisitos de instalación.</p></div>
-    <div><h3>Ingeniería clínica desde el inicio</h3><p>Una ingeniera biomédica traduce cada equipo en requisitos eléctricos, de gases y estructurales para el arquitecto.</p></div>
-    <div><h3>Experiencia pública y privada</h3><p>Equipos instalados en hospitales del MSP, IESS, FF.AA., Policía Nacional y clínicas privadas.</p></div>
-  </div>
-</div></section>
-
-<section id="faq"><div class="wrap" style="max-width:900px">
-  <div class="head"><p class="eyebrow">Preguntas frecuentes</p><h2>Sobre el diseño y equipamiento de áreas clínicas</h2></div>
-  <details><summary>¿En qué momento del proyecto debe intervenir Healthcorp?</summary><p>Desde el programa médico-funcional. El plan de equipamiento se elabora en paralelo al diseño arquitectónico, porque los equipos definen las instalaciones.</p></details>
-  <details><summary>¿Qué es un plot plan?</summary><p>Es el plano con la ubicación exacta de cada equipo en cada ambiente. Sirve para coordinar las preinstalaciones eléctricas, de gases y estructurales con la obra.</p></details>
-  <details><summary>¿Healthcorp construye la obra civil?</summary><p>Healthcorp coordina el diseño con un arquitecto especialista en áreas hospitalarias y es el proveedor directo del equipamiento médico. El alcance de obra civil se define en cada proyecto.</p></details>
-  <details><summary>¿Qué normativa se aplica?</summary><p>La normativa del MSP, ACESS y ARCSA es obligatoria. NFPA 99, IEC 60601, OPS/OMS y FGI se usan como referencia técnica. <a href="normativa.html">Ver normativa</a>.</p></details>
-  <details><summary>¿Pueden equipar un área existente sin remodelarla por completo?</summary><p>Sí. Evaluamos las instalaciones actuales del área y definimos qué preinstalaciones faltan para el equipamiento nuevo.</p></details>
 </div></section>
 </main>
 
@@ -372,10 +295,9 @@ model-viewer{width:100%;height:min(72vh,640px);background:linear-gradient(180deg
 })();
 
 (function(){
-  var f=document.getElementById('filters'),cards=document.querySelectorAll('#area-grid .acard');
-  f.addEventListener('click',function(ev){var b=ev.target.closest('button');if(!b)return;
-    f.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});
-    var g=b.dataset.g;cards.forEach(function(c){c.hidden=!(g==='*'||c.dataset.g===g)});});
+  var mv=document.getElementById('mv');
+  document.querySelectorAll('.views button').forEach(function(b){b.addEventListener('click',function(){mv.cameraOrbit=b.dataset.o;mv.cameraTarget=b.dataset.t;});});
+  mv.querySelectorAll('.hs').forEach(function(h){h.addEventListener('click',function(){h.classList.toggle('open');});});
 })();
 </script>
 </body>
