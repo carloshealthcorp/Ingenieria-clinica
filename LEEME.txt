@@ -1,0 +1,4 @@
+Coloca aqui las imagenes del sitio.
+
+Render del inicio: render-principal.jpg (horizontal 16:9, minimo 1920x1080).
+El nombre debe ser exactamente ese, en minusculas.
